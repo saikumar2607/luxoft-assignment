@@ -1,0 +1,38 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Test",
+      "request": "launch",
+      "runtimeArgs": [
+        "test"
+      ],
+      "runtimeExecutable": "npm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node",
+      "env": {
+        "MONGO_URL":"mongodb://localhost/saiqa"
+      }
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Launch Program",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\main.js",
+      "outFiles": ["${workspaceFolder}/**/*.js"],
+      "env": {
+        "PORT": "5000",
+        "DB_HOST":"localhost",
+        "DB_USER":"root",
+        "DB_PASSWORD":"Hello@123",
+        "DATABASE":"assignments"
+      }
+    }
+  ]
+}

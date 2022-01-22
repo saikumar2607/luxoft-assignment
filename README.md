@@ -1,1 +1,0 @@
-# luxoft-test
