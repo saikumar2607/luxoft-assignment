@@ -31,13 +31,14 @@ class Login extends React.Component {
     }
     return errors;
   };
-  onSubmit = (e) => {
+  onSubmit = async (e) => {
     e.preventDefault();
     const erroredFields = this.runValidators();
     if (Object.keys(erroredFields).length) {
       this.setState({ ...this.state, ...erroredFields });
     } else {
-      this.props.login({ email: this.state.email.value, password: this.state.password.value });
+      await this.props.login({ email: this.state.email.value, password: this.state.password.value });
+      this.props.history.push("/profile");
     }
   };
   render() {

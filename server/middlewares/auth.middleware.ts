@@ -28,7 +28,7 @@ export async function login(req: Request, res: Response, next: NextFunction) {
 export async function userList(req: Request, res: Response, next: NextFunction) {
   try {
     const results = await executeQuery("select * from users");
-    res.status(OK).send(sortResults(results));
+    res.status(OK).send({ list: sortResults(results) });
   } catch (error) {
     next(error);
   }

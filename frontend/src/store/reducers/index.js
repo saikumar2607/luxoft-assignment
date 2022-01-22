@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
-import { authReducer } from "./auth";
+import { authReducer, userReducer } from "./auth";
 import { SHOW_LOADING, SHOW_TOAST, STOP_LOADING, STOP_TOAST } from "../types";
 
 function loaders(state = { toaster: 0, loader: 0 }, action) {
@@ -34,6 +34,7 @@ const rootReducer = (history) => {
   return combineReducers({
     router: connectRouter(history),
     loaders,
+    users: userReducer,
     auth: authReducer
   });
 };

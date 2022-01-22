@@ -1,9 +1,14 @@
-import { push } from "connected-react-router";
 import { CALL_API } from "../api.middleware";
-import { USER_LOGIN_PROGRESS, USER_LOGIN_SUCCESS } from "../types";
+import {
+  FETCH_USERS_PROGRESS,
+  FETCH_USERS_SUCCESS,
+  USER_LOGIN_PROGRESS,
+  USER_LOGIN_SUCCESS,
+  LOGOUT_SUCCESS
+} from "../types";
 
 export const login = (payload) => async (dispatch) => {
-  let resp = await dispatch({
+  return await dispatch({
     [CALL_API]: {
       types: [USER_LOGIN_PROGRESS, USER_LOGIN_SUCCESS],
       body: payload,
@@ -11,18 +16,20 @@ export const login = (payload) => async (dispatch) => {
       method: `POST`
     }
   });
-  dispatch(push(`/profile`));
-  return resp;
 };
 
-export const users = () => async (dispatch) => {
+export const fetchUsers = () => async (dispatch) => {
   let resp = await dispatch({
     [CALL_API]: {
-      types: [USER_LOGIN_PROGRESS, USER_LOGIN_SUCCESS],
-      url: `/users/login`,
+      types: [FETCH_USERS_PROGRESS, FETCH_USERS_SUCCESS],
+      url: `/users/list`,
       method: `GET`
     }
   });
-  dispatch(push(`/profile`));
   return resp;
+};
+
+export const logout = () => (dispatch) => {
+  // Integrate API if any
+  dispatch({ type: LOGOUT_SUCCESS });
 };

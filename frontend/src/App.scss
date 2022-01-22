@@ -9,14 +9,42 @@
 .profile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
+  margin-top: 135px;
 }
 .profile-content {
   padding: 15px;
   display: flex;
   justify-content: space-between;
   min-width: 250px;
+}
+.page-header {
+  margin-top: 35px;
+  margin-left: 100px;
+  font-weight: bold !important;
+  font-size: 25px !important;
+}
+.table-header {
+  color: #fff !important;
+  font-weight: bold !important;
+}
+table,
+th,
+td {
+  padding: 10px;
+  border: 1px solid #b4cd32;
+  border-collapse: collapse;
+}
+table {
+  width: 100%;
+}
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+tr:nth-child(even) {
+  background-color: #e2ebb1;
 }

@@ -5,7 +5,9 @@ class Profile extends React.Component {
   render() {
     return (
       <Box>
-        <Typography style={{ marginTop: 35, marginLeft: 100, fontWeight: "bold", fontSize: 18 }}>Profile</Typography>
+        <div className="page-header">
+          <Typography className="page-header">Profile</Typography>
+        </div>
         <div className="profile">
           <div className="profile-content">
             <Typography style={{ fontWeight: "bold" }}>Name:</Typography>

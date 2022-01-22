@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Route, BrowserRouter, Redirect } from "react-router-dom";
+import { Route, BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
