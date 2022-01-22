@@ -46,6 +46,18 @@ export async function getDetail(req: Request, res: Response, next: NextFunction)
   }
 }
 
+export async function getDetailById(req: Request, res: Response, next: NextFunction) {
+  try {
+    const userDetail = await executeQuery("select id,name,email from users where id=?", req.params.id);
+    if (!userDetail.length) {
+      throw new APIError(Auth.USER_NOT_FOUND);
+    }
+    res.status(OK).send(userDetail[0]);
+  } catch (error) {
+    next(error);
+  }
+}
+
 function sortResults(data: any) {
   return data.sort((obj1: any, obj2: any) => obj1.name.localeCompare(obj2.name));
 }
