@@ -5,9 +5,6 @@ import * as app from "../app";
 
 let server: Server;
 
-export async function dropTables() {
-}
-
 export function startServer() {
     return new Promise((resolve, reject) => {
         server = app.listen(PORT, () => {

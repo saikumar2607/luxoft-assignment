@@ -1,14 +1,13 @@
 openapi: 3.0.0
 info:
-  title: Jumna
+  title: Luxoft Test
   version: 1.0.0
-  description: 'Node.js application with typescript,javascript'
+  description: 'Node.js application with typescript'
 servers:
   - url: 'http://localhost:5000/api'
-    description: API to get User ID
+    description: API to get User details
 tags:
   - name: Users
-    description: Secured Admin Calls
 paths:
   /users/{id}:
     get:
@@ -47,25 +46,6 @@ definitions:
           allOf:
             - $ref: '#/components/schemas/Error'
 components:
-  securitySchemes:
-    admintoken:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-    token:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-    merchant_token:
-      type: http
-      scheme: bearer
-      in: header
-      name: token
-    aisle_token:
-      type: http
-      scheme: bearer
-      in: header
-      name: token
   schemas:
     Error:
       description: Fail

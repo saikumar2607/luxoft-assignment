@@ -23,27 +23,3 @@ export function post(relativePath: string, options?: any): Promise<{ response: a
         });
     });
 }
-
-export function put(relativePath: string, options?: any): Promise<{ response: any, body: string; }> {
-    let url = relativePath.startsWith('/') ? BASE_URL + relativePath : relativePath;
-    return new Promise((resolve, reject) => {
-        request.put(url, options, (error: any, response: any, body: any) => {
-            if (error) {
-                return reject(error);
-            }
-            resolve({ response, body });
-        });
-    });
-}
-
-export function deleteApi(relativePath: string, options?: any): Promise<{ response: any, body: string; }> {
-    let url = relativePath.startsWith('/') ? BASE_URL + relativePath : relativePath;
-    return new Promise((resolve, reject) => {
-        request.post(url, options, (error: any, response: any, body: any) => {
-            if (error) {
-                return reject(error);
-            }
-            resolve({ response, body });
-        });
-    });
-};

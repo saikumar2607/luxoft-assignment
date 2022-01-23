@@ -14,7 +14,7 @@ export const defaultData = [
     id: 2, name: "Peter", email: "peter@123.com", password: "8^23!3", role: UserRole[UserRole.EMPLOYEE],
   },
   {
-    id: 3, name: "John", email: "john@123.com", password: "98#891", role: UserRole[UserRole.ADMIN],
+    id: 3, name: "John", email: "john@123.com", password: "98!891", role: UserRole[UserRole.ADMIN],
   },
   {
     id: 4, name: "Fred", email: "fred@123.com", password: "68651", role: UserRole[UserRole.ADMIN],

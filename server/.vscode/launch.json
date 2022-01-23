@@ -16,7 +16,10 @@
       ],
       "type": "pwa-node",
       "env": {
-        "MONGO_URL":"mongodb://localhost/saiqa"
+        "DB_HOST":"localhost",
+        "DB_USER":"root",
+        "DB_PASSWORD":"Hello@123",
+        "DATABASE":"assignments"
       }
     },
     {
