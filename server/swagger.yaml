@@ -1,0 +1,70 @@
+openapi: 3.0.0
+info:
+  title: Luxoft Test
+  version: 1.0.0
+  description: 'Node.js application with typescript'
+servers:
+  - url: 'http://localhost:5000/api'
+    description: API to get User details
+tags:
+  - name: Users
+paths:
+  /users/{id}:
+    get:
+      tags:
+        - Users
+      summary: Get details of a user
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: User ID
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json: 
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Success'
+        '400':
+          description: 'User not found in the records'
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref:#/definitions/BadRequest'
+
+definitions:
+  BadRequest:
+    description: Bad Request
+    content:
+      application/json:
+        schema:
+          allOf:
+            - $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      description: Fail
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              error:
+                type: string
+    Success:
+      description: Success
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        email:
+          type: string
